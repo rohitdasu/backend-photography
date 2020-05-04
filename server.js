@@ -18,8 +18,8 @@ app.use(function(req, res, next) {
   });
 
 var storage = multer.diskStorage({  
-    destination:function(req,file,cb){  
-         cb(null,'../front/src/assets/uploads')  
+    destination:function(req,file,cb){
+         cb(null,'./uploads')
     },
     filename(req,file,cb){  
         cb(null,file.originalname)  
@@ -48,6 +48,10 @@ app.get("/uploaded-pics-name",(req,res)=>{
     if (err) throw err;
     res.send(result);
   });
+});
+
+app.get("/",(req,res)=>{
+ res.send('Server is Serving')
 });
 
 app.get("/uploaded-profilepic-name",(req,res)=>{
